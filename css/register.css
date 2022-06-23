@@ -1,4 +1,29 @@
-.disabled{
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Changa', sans-serif;
+}
+
+.myFooter {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.myFooter li {
+    font-size: 20px;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.disabled {
     opacity: .5;
     cursor: not-allowed !important;
+}
+
+select {
+    width: 100%;
 }
