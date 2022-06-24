@@ -9,10 +9,14 @@ body {
     justify-content: space-around;
     margin-top: 3rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 .myFooter li {
     font-size: 20px;
+    width: 100px;
+    flex-shrink: 0;
 }
 
 .copyright {
