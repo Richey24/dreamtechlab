@@ -279,7 +279,14 @@
 									<button type="submit"
 										class="theme-btn btn-style-three disabled submit_btn"><span class="txt">Sign
 											Up <i class="fa fa-angle-right"></i></span></button>
+									<br>
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<p class="text-center text-success"
+											style="visibility: hidden;"
+											id="successMess">Registration successfull, you will recieve a
+											mail from us
+											on the next step
+										</p>
 										<p class="text-center">Have a question about Dreamtech Labs Academy training?
 										</p>
 										<div class="users"><a target="_blank"
@@ -343,6 +350,7 @@
 		</div>
 		<script type="text/javascript">
 			const myForm = document.getElementById("myForm")
+			const successMessage = document.getElementById("successMess")
 			myForm.onsubmit = submitForm
 			async function submitForm(event) {
 				event.preventDefault();
@@ -354,7 +362,6 @@
 					gender: event.target.sex.value,
 					course: event.target.course.value
 				}
-				console.log(message);
 				await fetch("http://localhost:5000/send/mail", {
 					method: "POST",
 					body: JSON.stringify(message),
@@ -362,6 +369,17 @@
 						"Content-type": "application/json; charset=UTF-8",
 					},
 				});
+				await fetch("http://localhost:5000/user/register", {
+					method: "POST",
+					body: JSON.stringify(message),
+					headers: {
+						"Content-type": "application/json; charset=UTF-8",
+					},
+				});
+				successMessage.style.visibility = "visible"
+				setTimeout(() => {
+					successMessage.style.visibility = "hidden"
+				}, 8000)
 			}
 		</script>
 		<script src="js/jquery.js"></script>
