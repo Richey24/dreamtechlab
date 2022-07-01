@@ -339,7 +339,6 @@
 				<div class="copyright">Copyright &copy; 2022 Dreamtech Labs Academy</div>
 
 			</footer>
-
 		</div>
 		<!--End pagewrapper-->
 
@@ -362,6 +361,10 @@
 					gender: event.target.sex.value,
 					course: event.target.course.value
 				}
+				successMessage.style.visibility = "visible"
+				setTimeout(() => {
+					successMessage.style.visibility = "hidden"
+				}, 8000)
 				await fetch("http://localhost:5000/send/mail", {
 					method: "POST",
 					body: JSON.stringify(message),
@@ -376,10 +379,6 @@
 						"Content-type": "application/json; charset=UTF-8",
 					},
 				});
-				successMessage.style.visibility = "visible"
-				setTimeout(() => {
-					successMessage.style.visibility = "hidden"
-				}, 8000)
 			}
 		</script>
 		<script src="js/jquery.js"></script>
