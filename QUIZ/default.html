@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Quiz App</title>
-  </head>
-  <body>
-    <form id="quiz" action="./index.html" method="get">
-        <div class="quiz-container" id="quiz">
-        <div style="margin-left:30px;margin-top:25px;">Welcome to the Dreamtech Labs Academy assessment quiz.  <br />The quiz presents 36 questions to assess your experience level.</div>      
-        <div class="quiz-header">
-            <h2 id="student" style="margin-left:-48px;">Dreamtech Labs Academy <br /> Assessment Quiz</h2>
-            <ul>
-            <li>
-                <label for="a" id="userName">Name</label>
-                <input type="text" name="studentName" id="studentName" class="answer" placeholder="Enter name" style="width:360px;">            
-            </li>
 
-            <li>
-                <label for="b" id="Email">Email</label>
-                &nbsp;<input type="email" name="studentEmail" id="studentEmail" class="answer " placeholder="Enter email" style="width:360px;">            
-            </li>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet"
+            href="style.css" />
+        <title>Quiz App</title>
+    </head>
 
-            <li>
-                <label for="c" id="Phone">Phone</label>
-                <input type="text" name="studentPhone" id="studentPhone" class="answer" placeholder="Enter phone" style="width:360px;">            
-            </li>
+    <body>
+        <form id="quiz"
+            action="./index.html"
+            method="get">
+            <div class="quiz-container"
+                id="quiz">
+                <div style="margin-left:30px;margin-top:25px;">Welcome to the Dreamtech Academy assessment quiz.
+                    <br />The quiz presents 36 questions to assess your experience level.</div>
+                <div class="quiz-header">
+                    <h2 id="student"
+                        style="margin-left:-48px;">Dreamtech Academy <br /> Assessment Quiz</h2>
+                    <ul>
+                        <li>
+                            <label for="a"
+                                id="userName">Name</label>
+                            <input type="text"
+                                name="studentName"
+                                id="studentName"
+                                class="answer"
+                                placeholder="Enter name"
+                                style="width:360px;">
+                        </li>
 
-            <li>
-                <label for="b" id="Course">Event</label>
-                &nbsp;&nbsp;<select id="courseName" name="courseName"  style="width:360px;" size="1"> 
-                    <option value="full_stack_development_bootcamp" selected>Full-Stack Web Development Coding Bootcamp</option>                
-                </select>
-            </li>
-            </ul>
-        </div>
-        <input type="submit" id="start" value="Start" />
-        <!-- <button id="start">Start Quiz</button> -->
-        </div>
-</form>
-    <script src="script.js"></script>
-  </body>
+                        <li>
+                            <label for="b"
+                                id="Email">Email</label>
+                            &nbsp;<input type="email"
+                                name="studentEmail"
+                                id="studentEmail"
+                                class="answer "
+                                placeholder="Enter email"
+                                style="width:360px;">
+                        </li>
+
+                        <li>
+                            <label for="c"
+                                id="Phone">Phone</label>
+                            <input type="text"
+                                name="studentPhone"
+                                id="studentPhone"
+                                class="answer"
+                                placeholder="Enter phone"
+                                style="width:360px;">
+                        </li>
+
+                        <li>
+                            <label for="b"
+                                id="Course">Event</label>
+                            &nbsp;&nbsp;<select id="courseName"
+                                name="courseName"
+                                style="width:360px;"
+                                size="1">
+                                <option value="full_stack_development_bootcamp"
+                                    selected>Full-Stack Web Development Coding Bootcamp</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <input type="submit"
+                    id="start"
+                    value="Start" />
+                <!-- <button id="start">Start Quiz</button> -->
+            </div>
+        </form>
+        <script src="script.js"></script>
+    </body>
+
 </html>
