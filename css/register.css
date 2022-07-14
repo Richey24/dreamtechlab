@@ -31,3 +31,26 @@ body {
 select {
     width: 100%;
 }
+
+@media screen and (max-width: 650px) {
+    .dreamLogo {
+        width: 70px;
+        height: 70px;
+    }
+
+    #myHeader {
+        background-color: #075E89;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .dreamLogo {
+        width: 150px;
+        height: 150px;
+        margin-top: -25px;
+    }
+
+    #myHeader {
+        margin-top: 1rem;
+    }
+}
