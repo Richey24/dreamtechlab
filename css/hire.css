@@ -1,0 +1,27 @@
+.boxer {
+  height: 180px;
+  position: relative;
+  text-align: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+}
+.boldText {
+  font-weight: 600;
+  font-size: large;
+  display: inline-flex;
+}
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 15px;
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: 800;
+}
+.h2{
+    letter-spacing: 15px !important;
+    font-size: 60px !important;
+}
