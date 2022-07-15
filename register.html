@@ -79,7 +79,7 @@
 						<div class="clearfix">
 
 							<div class="pull-left logo-box">
-								<div class="logo"><a href="index.html"><img src="./images/dreamtechlogo.png"
+								<div class="logo"><a href="hire-us.html"><img src="./images/dreamtechlogo.png"
 											class="dreamLogo"
 											alt=""
 											title="Bootcamp"></a></div>
@@ -376,14 +376,14 @@
 				setTimeout(() => {
 					successMessage.style.visibility = "hidden"
 				}, 8000)
-				await fetch("http://localhost:5000/send/mail", {
+				await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
 					method: "POST",
 					body: JSON.stringify(message),
 					headers: {
 						"Content-type": "application/json; charset=UTF-8",
 					},
 				});
-				await fetch("http://localhost:5000/user/register", {
+				await fetch("https://dreamtechbackend.herokuapp.com/user/register", {
 					method: "POST",
 					body: JSON.stringify(message),
 					headers: {

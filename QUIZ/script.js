@@ -371,7 +371,7 @@ async function sendEmail() {
     score: score,
     total: quizData.length,
   };
-  await fetch("http://localhost:5000/send/mail", {
+  await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
     method: "POST",
     body: JSON.stringify(message),
     headers: {
