@@ -26,13 +26,13 @@ body {
 
 h2 {
   padding: 1rem;
-  text-align: center;
-  margin: 0;
+  margin-left: 8%;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  margin-left: 9%;
 }
 
 ul li {
@@ -50,7 +50,7 @@ button {
   border: none;
   border-radius: 12px;
   display: block;
-  width: 90%;
+  width: 80%;
   cursor: pointer;
   font-size: 1.1rem;
   font-family: inherit;
