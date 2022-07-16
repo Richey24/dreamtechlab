@@ -11,6 +11,7 @@
   font-weight: 600;
   font-size: large;
   display: inline-flex;
+  color: #00ab15;
 }
 .number {
   position: absolute;
