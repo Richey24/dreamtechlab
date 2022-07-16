@@ -22,7 +22,29 @@
   font-size: 30px;
   font-weight: 800;
 }
-.h2{
-    letter-spacing: 15px !important;
-    font-size: 60px !important;
+.h2_class {
+  letter-spacing: 15px !important;
+  font-size: 60px;
 }
+@media screen and (max-width: 500px) {
+  .h2_class {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 410px) {
+  .h2_class {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .h2_class {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+    .h2_class {
+      font-size: 25px;
+    }
+  }
+  
