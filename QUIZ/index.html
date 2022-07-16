@@ -1,41 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Quiz App</title>
-  </head>
-  <body>
-    <div class="quiz-container" id="quiz">
-      <div style="margin-left:440px;margin-top:25px;">Time required:</div>
-      <div class="counter">15 to 20 Minutes</div>
-      <div class="quiz-header">
-        <h2 id="question" style="margin-left:-48px;">Question text</h2>
-        <ul>
-          <li>
-            <input type="radio" name="answer" id="a" class="answer">
-            <label for="a" id="a_text">Question</label>
-          </li>
 
-          <li>
-            <input type="radio" name="answer" id="b" class="answer">
-            <label for="b" id="b_text">Question</label>
-          </li>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet"
+            href="style.css" />
+        <title>Quiz App</title>
+    </head>
 
-          <li>
-            <input type="radio" name="answer" id="c" class="answer">
-            <label for="c" id="c_text">Question</label>
-          </li>
+    <body>
+        <form id="quiz">
+            <div class="quiz-container"
+                id="quiz">
+                <p style="text-align: center;">Welcome to the Dreamtech Academy
+                    assessment quiz.
+                </p>
+                <p style="text-align: center;">The quiz presents 36 questions to assess your experience level.</p>
+                <div class="quiz-header">
+                    <h2 id="student">Dreamtech Academy <br /> Assessment Quiz</h2>
+                    <div style="display: flex; justify-content: center;">
+                        <ul>
+                            <li>
+                                <label for="a"
+                                    id="userName">Name</label>
+                                <input type="text"
+                                    name="studentName"
+                                    id="studentName"
+                                    class="answer"
+                                    placeholder="Enter name"
+                                    style="width:360px;">
+                            </li>
 
-          <li>
-            <input type="radio" name="answer" id="d" class="answer">
-            <label for="d" id="d_text">Question</label>
-          </li>
-        </ul>
-      </div>
-      <button id="submit">Submit</button>
-    </div>
-    <script src="script.js"></script>
-  </body>
+                            <li>
+                                <label for="b"
+                                    id="Email">Email</label>
+                                &nbsp;<input type="email"
+                                    name="studentEmail"
+                                    id="studentEmail"
+                                    class="answer "
+                                    placeholder="Enter email"
+                                    style="width:360px;">
+                            </li>
+
+                            <li>
+                                <label for="c"
+                                    id="Phone">Phone</label>
+                                <input type="text"
+                                    name="studentPhone"
+                                    id="studentPhone"
+                                    class="answer"
+                                    placeholder="Enter phone"
+                                    style="width:360px;">
+                            </li>
+
+                            <li>
+                                <label for="b"
+                                    id="Course">Event</label>
+                                &nbsp;&nbsp;<select id="courseName"
+                                    name="courseName"
+                                    style="width:360px;"
+                                    size="1">
+                                    <option value="Full-Stack Web Development Coding Bootcamp 1"
+                                        selected>Full-Stack Web Development Coding Bootcamp 1</option>
+                                    <option value="Full-Stack Web Development Coding Bootcamp 2">Full-Stack Web
+                                        Development
+                                        Coding Bootcamp 2</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <center>
+                        <button type="submit"
+                            id="start">Start Quiz</button>
+                    </center>
+                </div>
+            </div>
+        </form>
+        <script src="script.js"></script>
+    </body>
+
 </html>
