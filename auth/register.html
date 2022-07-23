@@ -197,7 +197,7 @@
           course: event.target.course.value,
           password: event.target.password.value,
         };
-        await fetch("", {
+        await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
