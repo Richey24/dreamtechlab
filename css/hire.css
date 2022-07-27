@@ -2,6 +2,9 @@
   height: 180px;
   position: relative;
   text-align: center;
+  /* border: #00ab15 1px solid; */
+  padding-bottom: 10px;
+  overflow-y: scroll !important;
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
