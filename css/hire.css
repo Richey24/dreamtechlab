@@ -1,14 +1,15 @@
 .boxer {
-  height: 180px;
   position: relative;
   text-align: center;
   /* border: #00ab15 1px solid; */
   padding-bottom: 10px;
-  overflow-y: scroll !important;
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
   /* flex-direction: column; */
+  min-height: 220px !important;
+  max-height: 220px !important;
+
 }
 .boldText {
   font-weight: 600;
@@ -26,8 +27,11 @@
   font-weight: 800;
 }
 .h2_class {
-  letter-spacing: 15px !important;
-  font-size: 60px;
+  letter-spacing: 1px !important;
+  font-size: 55px;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  color: #075e89 !important;
 }
 @media screen and (max-width: 500px) {
   .h2_class {
