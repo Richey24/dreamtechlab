@@ -40,7 +40,8 @@
   <body>
     <div class="page-wrapper">
       <!-- Register Section -->
-      <section class="register-section" style="padding:100px !important;">
+      <section class="register-section"
+        style="padding:100px !important;">
         <div class="">
           <div class="register-box">
             <!-- Title Box -->
@@ -146,11 +147,9 @@
     <script type="text/javascript">
       const myForm = document.getElementById("myForm");
       const allInputs = document.querySelectorAll("input");
-      // console.log("gender", gender);
       allInputs.forEach((el) => {
         const eventsFunction = (e) => {
           let checkedToo = true;
-          // console.log(checkedToo);
           const data = {
             firstName: event.target.firstname.value,
             lastName: event.target.lastname.value,
