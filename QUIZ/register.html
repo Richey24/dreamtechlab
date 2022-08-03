@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Dreamtech Academy | Register</title>
+    <meta name="theme-color"
+      content="#075E89" />
+    <meta name="description"
+      content="Dreamtech Academy is an educational institute focused on teaching people who want to get into tech everything about software development" />
+    <link rel="apple-touch-icon"
+      href="./images/dreamtechlogo.png" />
+    <!-- Stylesheets -->
+    <link href="../css/bootstrap.css"
+      rel="stylesheet" />
+    <link href="../css/main.css"
+      rel="stylesheet" />
+    <link href="../css/responsive.css"
+      rel="stylesheet" />
+    <link href="../css/register.css"
+      rel="stylesheet" />
+
+    <link rel="shortcut icon"
+      href="images/dreamtechlogo.png"
+      type="image/x-icon" />
+    <link rel="icon"
+      href="images/dreamtechlogo.png"
+      type="image/x-icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet" />
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- Register Section -->
+      <section class="register-section"
+        style="padding:100px !important;">
+        <div class="">
+          <div class="register-box">
+            <!-- Title Box -->
+            <div class="title-box">
+              <h2>Register</h2>
+              <div class="text">
+                <a href="/quiz/index.html"
+                  class="theme_color">Login</a>
+                if you Already have an Account
+              </div>
+            </div>
+            <p id="message"></p>
+            <!-- Login Form -->
+            <div class="styled-form">
+              <form id="myForm">
+                <div class="row clearfix registerForm">
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>First Name</label>
+                    <input type="text"
+                      name="firstname"
+                      value=""
+                      id="firstname"
+                      placeholder="First Name"
+                      required />
+                  </div>
+
+                  <!-- Form Group -->
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Last Name</label>
+                    <input type="text"
+                      name="lastname"
+                      id="lastname"
+                      value=""
+                      placeholder="Last Name"
+                      required />
+                  </div>
+
+                  <!-- Form Group -->
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Email Address</label>
+                    <input type="email"
+                      name="email"
+                      value=""
+                      id="email"
+                      placeholder="abcd@gmail.com"
+                      required />
+                  </div>
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Password</label>
+                    <input type="password"
+                      name="password"
+                      value=""
+                      id="password"
+                      placeholder="...........Pass"
+                      required />
+                  </div>
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Confirm Password</label>
+                    <input type="password"
+                      name="comfirm-password"
+                      value=""
+                      id="confirm-password"
+                      placeholder="...........Pass"
+                      required />
+                  </div>
+                  <!-- Form Group -->
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label>Choose Course of Interest:</label>
+                    <select name="course"
+                      id="course"
+                      style="border-block: medium">
+                      <option value="Full-Stack Web Development Bootcamp 1">
+                        Full-Stack Web Development Bootcamp 1 (Introductory
+                        course for novice coders)
+                      </option>
+                      <option value="Full-Stack Web Development Bootcamp 2">
+                        Full-Stack Web Development Bootcamp 2 (Advanced course
+                        for intermediate coders)
+                      </option>
+                    </select>
+                  </div>
+                  <button type="submit"
+                    class="theme-btn btn-style-three disabled submit_btn"
+                    id="btn">
+                    <span class="txt">Sign Up <i class="fa fa-angle-right"></i></span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="text/javascript">
+      const myForm = document.getElementById("myForm");
+      const allInputs = document.querySelectorAll("input");
+      const buttonSave = document.getElementById("btn")
+      const message = document.getElementById("message")
+      allInputs.forEach((el) => {
+        const eventsFunction = (event) => {
+          let checkedToo = true;
+          const data = {
+            firstName: document.getElementById("firstname").value,
+            lastName: document.getElementById("lastname").value,
+            email: document.getElementById("email").value,
+            course: document.getElementById("course").value,
+            password: document.getElementById("password").value,
+          };
+          if (
+            data.firstName === "" ||
+            data.email === "" ||
+            data.password === "" ||
+            data.course === "" ||
+            validEmail(data.email)
+          ) {
+            buttonSave.classList.add("disabled");
+          } else {
+            buttonSave.classList.remove("disabled");
+          }
+        };
+        const validEmail = (email) => {
+          const reg = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+          if (reg.test(email)) {
+            return false;
+          } else {
+            return true;
+          }
+        };
+        el.onkeyup = eventsFunction;
+        el.onchange = eventsFunction;
+      });
+      myForm.onsubmit = submitForm;
+      async function submitForm(event) {
+        event.preventDefault();
+        const data = {
+          firstname: event.target.firstname.value,
+          lastname: event.target.lastname.value,
+          email: event.target.email.value,
+          course: event.target.course.value,
+          mypassword: event.target.password.value,
+        };
+        console.log(data);
+        const res = await fetch("https://dreamtechbackend.herokuapp.com/user/register", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+        const rep = await res.json()
+        console.log(rep);
+        switch (res.status) {
+          case 201:
+            message.innerHTML = "User with this email already exist"
+            setTimeout(() => {
+              message.innerHTML = ""
+            }, 9000)
+            break;
+          case 500:
+            message.innerHTML = "Error registering user, please try again"
+            setTimeout(() => {
+              message.innerHTML = ""
+            }, 9000)
+            break;
+          case 200:
+            window.location.href = "/quiz/index.html"
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/element-in-view.js"></script>
+    <script src="js/jquery.paroller.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/tilt.jquery.min.js"></script>
+    <!--Master Slider-->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <!-- <script src="js/register.js"></script> -->
+  </body>
+
+</html>
