@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Dreamtech Academy | Login</title>
+    <meta name="theme-color"
+      content="#075E89" />
+    <meta name="description"
+      content="Dreamtech Academy is an educational institute focused on teaching people who want to get into tech everything about software development" />
+    <link rel="apple-touch-icon"
+      href="./images/dreamtechlogo.png" />
+    <!-- Stylesheets -->
+    <link href="../css/bootstrap.css"
+      rel="stylesheet" />
+    <link href="../css/main.css"
+      rel="stylesheet" />
+    <link href="../css/responsive.css"
+      rel="stylesheet" />
+    <link href="../css/register.css"
+      rel="stylesheet" />
+
+    <link rel="shortcut icon"
+      href="images/dreamtechlogo.png"
+      type="image/x-icon" />
+    <link rel="icon"
+      href="images/dreamtechlogo.png"
+      type="image/x-icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet" />
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>![endif] -->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- Register Section -->
+      <section class="register-section"
+        style="padding:100px !important;">
+        <div class="">
+          <div class="register-box"
+            style="max-width: 50%;">
+            <!-- Title Box -->
+            <div class="title-box">
+              <h2>Login</h2>
+              <div class="text">
+                <a href="/quiz/register.html"
+                  class="theme_color">Register</a>
+                if you dont Already have an Account with Us
+              </div>
+            </div>
+            <p style="text-align: center; font-size: 18px; color: red;"
+              id="message"></p>
+            <!-- Login Form -->
+            <div class="styled-form">
+              <form id="myForm">
+                <div class="row clearfix registerForm">
+                  <!-- Form Group -->
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label>Email Address</label>
+                    <input type="email"
+                      name="email"
+                      value=""
+                      id="email"
+                      placeholder="abcd@gmail.com"
+                      required />
+                  </div>
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label>Password</label>
+                    <input type="password"
+                      name="password"
+                      value=""
+                      id="password"
+                      placeholder="..........."
+                      required />
+                  </div>
+
+                  <br />
+                  <br /><br /><br /><br />
+                </div>
+                <center>
+                  <button type="submit"
+                    class="theme-btn btn-style-three submit_btn">
+                    <span class="txt">Log in <i class="fa fa-angle-right"></i></span>
+                  </button>
+                </center>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="text/javascript">
+      const myForm = document.getElementById("myForm")
+      const message = document.getElementById("message")
+      myForm.onsubmit = submitForm
+      async function submitForm(event) {
+        event.preventDefault();
+        const data = {
+          email: event.target.email.value,
+          password: event.target.password.value,
+        }
+        const res = await fetch("https://dreamtechbackend.herokuapp.com/user/login", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+        const rep = await res.json()
+        switch (res.status) {
+          case 401:
+            message.innerHTML = "Kindly wait till a week after your previous test to take another test"
+            setTimeout(() => {
+              message.innerHTML = ""
+            }, 9000)
+            break;
+          case 404:
+            message.innerHTML = "No user found with this email"
+            setTimeout(() => {
+              message.innerHTML = ""
+            }, 9000)
+            break
+          case 203:
+            message.innerHTML = "Invalid password"
+            setTimeout(() => {
+              message.innerHTML = ""
+            }, 9000)
+            break
+          case 200:
+            document.cookie = "verified"
+            sessionStorage.setItem("name", rep.firstname + " " + rep.lastname);
+            sessionStorage.setItem("email", rep.email);
+            sessionStorage.setItem("course", rep.course);
+            window.location.href = "/quiz/start.html"
+            break
+          default:
+            break;
+        }
+      }
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery.scrollTo.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/element-in-view.js"></script>
+    <script src="js/jquery.paroller.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/tilt.jquery.min.js"></script>
+    <!--Master Slider-->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <!-- <script src="js/register.js"></script> -->
+  </body>
+
+</html>

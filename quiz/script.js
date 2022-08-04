@@ -32,22 +32,6 @@ const quizData = [
     correct: "c",
   },
   {
-    question: "Which language runs in a web browser?",
-    a: "Java",
-    b: "C",
-    c: "Python",
-    d: "JavaScript",
-    correct: "d",
-  },
-  {
-    question: "What does CSS stand for?",
-    a: "Central Style Sheets",
-    b: "Cascading Style Sheets",
-    c: "Cascading Simple Sheets",
-    d: "none of the above",
-    correct: "b",
-  },
-  {
     question: "What does HTML stand for?",
     a: "Hypertext Markup Language",
     b: "Hypertext Markdown Language",
@@ -80,6 +64,112 @@ const quizData = [
     correct: "c",
   },
   {
+    question: "How is color not defined in  HTML5?  ",
+    a: "RGB",
+    b: "Integer",
+    c: "Color name",
+    d: "HEX",
+    correct: "b",
+  },
+  {
+    question: "What is a valid HTML5 movie extension?",
+    a: ".MP4",
+    b: ".FLICK",
+    c: ".MP3",
+    d: ".Movie",
+    correct: "a",
+  },
+  {
+    question:
+      "Which tag can be used in leiu of the <table> tags for positioning elements in HTML5?",
+    a: "<pos>",
+    b: "<div>",
+    c: "<loc>",
+    d: "<br>",
+    correct: "b",
+  },
+  {
+    question: "What does the HTML5 <tr> tag represent?",
+    a: "Text rendered",
+    b: "Tab index",
+    c: "Table row",
+    d: "Tag attribute",
+    correct: "c",
+  },
+  {
+    question: "What does HTML5 <td> stand for?",
+    a: "Tab data",
+    b: "Text data",
+    c: "Tag data",
+    d: "Table row data",
+    correct: "d",
+  },
+  {
+    question: "What does HTML5 <br> tag stand for?",
+    a: "Line Break",
+    b: "Border ratio",
+    c: "bolder red",
+    d: "Brown color",
+    correct: "a",
+  },
+  {
+    question: "What is the HTML5 <hr> tag?",
+    a: "Header right-aligned",
+    b: "Horisontal rule",
+    c: "Horisontal radius",
+    d: "none of the above",
+    correct: "b",
+  },
+  {
+    question: "What does the HTML5 <ul> represent?",
+    a: "Underlined list",
+    b: "Uppercased list ",
+    c: "Unfilterd list",
+    d: "Unordered list",
+    correct: "d",
+  },
+  {
+    question: "What does HTML5 <ol> stand for?",
+    a: "Ordered list",
+    b: "Open list",
+    c: "Output list",
+    d: "none of the above",
+    correct: "a",
+  },
+  {
+    question: "What does HTML5 <i> tag stand for?",
+    a: "Italics text",
+    b: "Indent text",
+    c: "Include text",
+    d: "none of the above",
+    correct: "a",
+  },
+  {
+    question: "What does the HTML5 <li> tag stand for?",
+    a: "Last item",
+    b: "List item",
+    c: "List index",
+    d: "none of the above",
+    correct: "b",
+  },
+  {
+    question: "What does CSS stand for?",
+    a: "Central Style Sheets",
+    b: "Cascading Style Sheets",
+    c: "Cascading Simple Sheets",
+    d: "none of the above",
+    correct: "b",
+  },
+  {
+    question:
+      "Where are elements class attributes definitions generally defined?",
+    a: "CSS",
+    b: "JSON",
+    c: "XML",
+    d: "JavaScript",
+    correct: "a",
+  },
+  {
     question: "Inside what element do you put javascript?",
     a: "<js>",
     b: "<scripttag>",
@@ -94,6 +184,14 @@ const quizData = [
     c: "<footer>",
     d: "all of the above",
     correct: "b",
+  },
+  {
+    question: "Which language runs in a web browser?",
+    a: "Java",
+    b: "C",
+    c: "Python",
+    d: "JavaScript",
+    correct: "d",
   },
   {
     question:
@@ -199,104 +297,6 @@ const quizData = [
     d: "none of the above",
     correct: "b",
   },
-  {
-    question:
-      "Where are elements class attributes definitions generally defined?",
-    a: "CSS",
-    b: "JSON",
-    c: "XML",
-    d: "JavaScript",
-    correct: "a",
-  },
-  {
-    question: "How is color not defined in  HTML5?  ",
-    a: "RGB",
-    b: "Integer",
-    c: "Color name",
-    d: "HEX",
-    correct: "b",
-  },
-  {
-    question: "What is a valid HTML5 movie extension?",
-    a: ".MP4",
-    b: ".FLICK",
-    c: ".MP3",
-    d: ".Movie",
-    correct: "a",
-  },
-  {
-    question:
-      "Which tag can be used in leiu of the <table> tags for positioning elements in HTML5?",
-    a: "<pos>",
-    b: "<div>",
-    c: "<loc>",
-    d: "<br>",
-    correct: "b",
-  },
-  {
-    question: "What does the HTML5 <tr> tag represent?",
-    a: "Text rendered",
-    b: "Tab index",
-    c: "Table row",
-    d: "Tag attribute",
-    correct: "c",
-  },
-  {
-    question: "What does HTML5 <td> stand for?",
-    a: "Tab data",
-    b: "Text data",
-    c: "Tag data",
-    d: "Table row data",
-    correct: "d",
-  },
-  {
-    question: "What does HTML5 <br> tag stand for?",
-    a: "Line Break",
-    b: "Border ratio",
-    c: "bolder red",
-    d: "Brown color",
-    correct: "a",
-  },
-  {
-    question: "What is the HTML5 <hr> tag?",
-    a: "Header right-aligned",
-    b: "Horisontal rule",
-    c: "Horisontal radius",
-    d: "none of the above",
-    correct: "b",
-  },
-  {
-    question: "What does the HTML5 <ul> represent?",
-    a: "Underlined list",
-    b: "Uppercased list ",
-    c: "Unfilterd list",
-    d: "Unordered list",
-    correct: "d",
-  },
-  {
-    question: "What does HTML5 <ol> stand for?",
-    a: "Ordered list",
-    b: "Open list",
-    c: "Output list",
-    d: "none of the above",
-    correct: "a",
-  },
-  {
-    question: "What does HTML5 <i> tag stand for?",
-    a: "Italics text",
-    b: "Indent text",
-    c: "Include text",
-    d: "none of the above",
-    correct: "a",
-  },
-  {
-    question: "What does the HTML5 <li> tag stand for?",
-    a: "Last item",
-    b: "List item",
-    c: "List index",
-    d: "none of the above",
-    correct: "b",
-  },
 ];
 
 const TestTimeLimit = 1800;
@@ -317,13 +317,11 @@ let coursename = "";
 
 const urlParams = new URLSearchParams(location.search);
 
-quiz.addEventListener("submit", (event) => {
-  event.preventDefault();
-  sessionStorage.setItem("name", event.target.studentName.value);
-  sessionStorage.setItem("email", event.target.studentEmail.value);
-  sessionStorage.setItem("phone", event.target.studentPhone.value);
-  sessionStorage.setItem("course", event.target.courseName.value);
-  window.location.replace("start.html");
+window.addEventListener("load", () => {
+  const status = document.cookie;
+  if (!status) {
+    window.location.href = "/quiz/index.html";
+  }
 });
 
 let currentQuiz = 0;
@@ -374,6 +372,13 @@ async function sendEmail() {
   await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
     method: "POST",
     body: JSON.stringify(message),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+  await fetch("https://dreamtechbackend.herokuapp.com/user/date", {
+    method: "POST",
+    body: JSON.stringify({ email: message.email }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
