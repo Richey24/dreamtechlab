@@ -48,7 +48,7 @@ const quizData = [
     correct: "a",
   },
   {
-    question: "Choose the correct HTM5L element for the largest heading?",
+    question: "Choose the correct HTML5 element for the largest heading?",
     a: "<head>",
     b: "<h1>",
     c: "<heading>",
@@ -71,30 +71,15 @@ const quizData = [
     d: "HEX",
     correct: "b",
   },
-  {
-    question: "What is a valid HTML5 movie extension?",
-    a: ".MP4",
-    b: ".FLICK",
-    c: ".MP3",
-    d: ".Movie",
-    correct: "a",
-  },
+
   {
     question:
-      "Which tag can be used in leiu of the <table> tags for positioning elements in HTML5?",
+      "Which tag can be used in lieu of the <table> tags for positioning elements in HTML5?",
     a: "<pos>",
     b: "<div>",
     c: "<loc>",
     d: "<br>",
     correct: "b",
-  },
-  {
-    question: "What does the HTML5 <tr> tag represent?",
-    a: "Text rendered",
-    b: "Tab index",
-    c: "Table row",
-    d: "Tag attribute",
-    correct: "c",
   },
   {
     question: "What does HTML5 <td> stand for?",
@@ -113,29 +98,14 @@ const quizData = [
     correct: "a",
   },
   {
-    question: "What is the HTML5 <hr> tag?",
-    a: "Header right-aligned",
-    b: "Horisontal rule",
-    c: "Horisontal radius",
-    d: "none of the above",
-    correct: "b",
-  },
-  {
     question: "What does the HTML5 <ul> represent?",
     a: "Underlined list",
     b: "Uppercased list ",
-    c: "Unfilterd list",
+    c: "Unfiltered list",
     d: "Unordered list",
     correct: "d",
   },
-  {
-    question: "What does HTML5 <ol> stand for?",
-    a: "Ordered list",
-    b: "Open list",
-    c: "Output list",
-    d: "none of the above",
-    correct: "a",
-  },
+
   {
     question: "What does HTML5 <i> tag stand for?",
     a: "Italics text",
@@ -152,6 +122,7 @@ const quizData = [
     d: "none of the above",
     correct: "b",
   },
+
   {
     question: "What does CSS stand for?",
     a: "Central Style Sheets",
@@ -169,6 +140,40 @@ const quizData = [
     d: "JavaScript",
     correct: "a",
   },
+  {
+    question: "How can you integrate css in a webpage?",
+    a: "Embedded or internal method only ",
+    b: "Linked or imported or external method",
+    c: "Inline method only",
+    d: "none of the above",
+    correct: "b",
+  },
+  {
+    question: "What are some css frameworks ?",
+    a: "Bootstrap and UIkit",
+    b: "Foundation and Gumby",
+    c: "Semantic UI",
+    d: "All of the above",
+    correct: "d",
+  },
+
+  {
+    question: "What are some css Selectors?",
+    a: "CSS Element Selector",
+    b: "CSS Class Selector",
+    c: "CSS indie Selector",
+    d: "a and b ",
+    correct: "d",
+  },
+  {
+    question: "Choose the correct method to link an external style sheet?",
+    a: "<src rel=’stylesheet’ type=’text/css’ href=’style.css’> ",
+    b: "<link rel=’stylesheet’ type=’text/css’ href=’style.css’> ",
+    c: "<embed rel=’stylesheet’ type=’text/css’ href=’style.css’> ",
+    d: "<script rel=’stylesheet’ type=’text/css’ href=’style.css’> ",
+    correct: "b",
+  },
+
   {
     question: "Inside what element do you put javascript?",
     a: "<js>",
@@ -238,7 +243,7 @@ const quizData = [
   },
   {
     question:
-      "Which state is not the correct syntax to declare a variable in Javascript?",
+      "Which of the following is NOT an acceptable way to declare a variable in Javascript?",
     a: "let customer ='Suzie'",
     b: "const customer = 'Suzie'",
     c: "var customer = 'Suzie'",
@@ -248,10 +253,10 @@ const quizData = [
   {
     question:
       "Which is the correct syntax for opening a new window called screen1 in Javascript?",
-    a: "screen1 = window.new('dreamtechlabsacademy.com')",
-    b: "screen1=window.open('dreamtechlabsacademy.com')",
-    c: "screen1 = window.launch('dreamtechlabsacademy.com')",
-    d: "screen1 = window.display(“dreamtechlabsacademy.com”)",
+    a: "screen1 = window.new('dreamtechacademy.live')",
+    b: "screen1=window.open('dreamtechacademy.live')",
+    c: "screen1 = window.launch('dreamtechacademy.live')",
+    d: "screen1 = window.display(“dreamtechacademy.live”)",
     correct: "b",
   },
   {
@@ -314,6 +319,9 @@ let studentName = "";
 let studentEmail = "";
 let studentPhone = "";
 let coursename = "";
+let htmlScore = 0;
+let cssScore = 0;
+let jsScore = 0;
 
 const urlParams = new URLSearchParams(location.search);
 
@@ -368,6 +376,9 @@ async function sendEmail() {
     quizCourse: sessionStorage.getItem("course"),
     score: score,
     total: quizData.length,
+    htmlScore: htmlScore,
+    cssScore: cssScore,
+    jsScore: jsScore,
   };
   await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
     method: "POST",
@@ -394,6 +405,23 @@ if (submitBtn != null)
       }
 
       currentQuiz++;
+
+      if (currentQuiz === 15 && score < 7) {
+        quizData.length = 15;
+        htmlScore = score;
+      }
+
+      if (currentQuiz === 15) {
+        htmlScore = score;
+      }
+
+      if (currentQuiz === 21) {
+        cssScore = score - htmlScore;
+      }
+
+      if (currentQuiz === quizData.length - 1) {
+        jsScore = score - (htmlScore + cssScore);
+      }
 
       if (currentQuiz < quizData.length) {
         loadQuiz();
