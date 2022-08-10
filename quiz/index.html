@@ -140,6 +140,7 @@
             document.cookie = "verified"
             sessionStorage.setItem("name", rep.firstname + " " + rep.lastname);
             sessionStorage.setItem("email", rep.email);
+            sessionStorage.setItem("phone", rep.phoneNumber);
             sessionStorage.setItem("course", rep.course);
             window.location.href = "/quiz/start.html"
             break

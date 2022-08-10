@@ -325,12 +325,12 @@ let jsScore = 0;
 
 const urlParams = new URLSearchParams(location.search);
 
-window.addEventListener("load", () => {
-  const status = document.cookie;
-  if (!status) {
-    window.location.href = "/quiz/index.html";
-  }
-});
+// window.addEventListener("load", () => {
+//   const status = document.cookie;
+//   if (!status) {
+//     window.location.href = "/quiz/index.html";
+//   }
+// });
 
 let currentQuiz = 0;
 let score = 0;
@@ -370,9 +370,9 @@ function getSelected() {
 
 async function sendEmail() {
   const message = {
-    name: sessionStorage.getItem("name"),
-    email: sessionStorage.getItem("email"),
-    phone: sessionStorage.getItem("phone"),
+    name: "Rejoice",
+    email: "uahomorejoice@gmail.com",
+    phoneNumber: "0904758859",
     quizCourse: sessionStorage.getItem("course"),
     score: score,
     total: quizData.length,
