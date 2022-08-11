@@ -31,6 +31,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap"
       rel="stylesheet" />
 
+    <script src="https://www.google.com/recaptcha/api.js"
+      async
+      defer></script>
+
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible"
       content="IE=edge" />
@@ -222,9 +226,13 @@
                       name="message"
                       placeholder="Send Message"></textarea>
                   </div>
-
+                  <div style="margin-left: 1rem;"
+                    class="g-recaptcha"
+                    data-sitekey="6Ld7tWYhAAAAAIBmG3LPfYNMVoGdDhc_2YzKXahC"
+                    data-callback="myCap"></div>
                   <div class="col-lg-12 col-md-12 col-sm-12 form-group text-right">
                     <button class="theme-btn btn-style-three"
+                      id="submitBtn"
                       type="submit"
                       name="submit-form">
                       <span class="txt">Send Message <i class="fa fa-angle-right"></i></span>
@@ -362,8 +370,17 @@
       <span class="fa fa-arrow-circle-up"></span>
     </div>
     <script type="text/javascript">
+      const submitBtn = document.getElementById("submitBtn")
       const myForm = document.getElementById("myForm");
       const successMessage = document.getElementById("successMess");
+      submitBtn.setAttribute("disabled", true)
+      submitBtn.style.cursor = "not-allowed"
+
+      function myCap() {
+        submitBtn.setAttribute("disabled", false)
+        submitBtn.style.cursor = "pointer"
+      }
+
       myForm.onsubmit = submitForm;
       async function submitForm(event) {
         event.preventDefault();
