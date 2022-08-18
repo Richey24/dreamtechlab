@@ -30,6 +30,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap"
       rel="stylesheet" />
+    <script src="https://www.google.com/recaptcha/api.js"
+      async
+      defer></script>
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible"
       content="IE=edge" />
@@ -132,6 +135,9 @@
                       </option>
                     </select>
                   </div>
+                  <div class="g-recaptcha"
+                    data-sitekey="6Ld7tWYhAAAAAIBmG3LPfYNMVoGdDhc_2YzKXahC"
+                    data-callback="myCap"></div>
                   <button type="submit"
                     class="theme-btn btn-style-three disabled submit_btn"
                     id="btn">
@@ -149,6 +155,10 @@
       const allInputs = document.querySelectorAll("input");
       const buttonSave = document.getElementById("btn")
       const message = document.getElementById("message")
+      let cap = false
+      function myCap() {
+        cap = true
+      }
       allInputs.forEach((el) => {
         const eventsFunction = (event) => {
           let checkedToo = true;
@@ -166,11 +176,14 @@
             data.password === "" ||
             data.phoneNumber === "" ||
             data.course === "" ||
-            validEmail(data.email)
+            validEmail(data.email) ||
+            !cap
           ) {
             buttonSave.classList.add("disabled");
+            buttonSave.setAttribute("disabled", true)
           } else {
             buttonSave.classList.remove("disabled");
+            buttonSave.setAttribute("disabled", false)
           }
         };
         const validEmail = (email) => {
