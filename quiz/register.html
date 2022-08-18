@@ -44,7 +44,7 @@
     <div class="page-wrapper">
       <!-- Register Section -->
       <section class="register-section"
-        style="padding:50px !important;">
+        style="padding:20px !important;">
         <div class="">
           <div class="register-box">
             <!-- Title Box -->
@@ -135,7 +135,8 @@
                       </option>
                     </select>
                   </div>
-                  <div class="g-recaptcha"
+                  <div style="margin-left: 1.2rem; margin-bottom: 1rem;"
+                    class="g-recaptcha"
                     data-sitekey="6Ld7tWYhAAAAAIBmG3LPfYNMVoGdDhc_2YzKXahC"
                     data-callback="myCap"></div>
                   <button type="submit"
@@ -155,6 +156,7 @@
       const allInputs = document.querySelectorAll("input");
       const buttonSave = document.getElementById("btn")
       const message = document.getElementById("message")
+      buttonSave.setAttribute("disabled", true)
       let cap = false
       function myCap() {
         cap = true
@@ -182,10 +184,8 @@
             !cap
           ) {
             buttonSave.classList.add("disabled");
-            buttonSave.setAttribute("disabled", true)
           } else {
             buttonSave.classList.remove("disabled");
-            buttonSave.setAttribute("disabled", false)
           }
         };
         const validEmail = (email) => {
@@ -210,7 +210,7 @@
           course: event.target.course.value,
           mypassword: event.target.password.value,
         };
-        console.log(data);
+        console.log("sad");
         const res = await fetch("https://dreamtechbackend.herokuapp.com/user/register", {
           method: "POST",
           body: JSON.stringify(data),
