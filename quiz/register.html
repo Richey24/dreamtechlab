@@ -210,7 +210,6 @@
           course: event.target.course.value,
           mypassword: event.target.password.value,
         };
-        console.log("sad");
         const res = await fetch("https://dreamtechbackend.herokuapp.com/user/register", {
           method: "POST",
           body: JSON.stringify(data),
@@ -219,7 +218,6 @@
           },
         });
         const rep = await res.json()
-        console.log(rep);
         switch (res.status) {
           case 201:
             message.innerHTML = "User with this email already exist"
