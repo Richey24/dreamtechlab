@@ -161,7 +161,7 @@
       function myCap() {
         cap = true
         buttonSave.classList.remove("disabled");
-        buttonSave.setAttribute("disabled", false)
+        buttonSave.removeAttribute("disabled")
       }
       allInputs.forEach((el) => {
         const eventsFunction = (event) => {
