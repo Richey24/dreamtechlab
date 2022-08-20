@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Changa', sans-serif;
+}
+
+.logo>img {
+    width: 25%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px green solid;
+}
+
+.heading {
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px green solid;
+    padding-bottom: 15px;
+}
+
+.terms {
+    border-bottom: 2px green solid;
+}
+
+.terms>h2,
+.terms>h4 {
+    font-weight: bold;
+}
+
+.intro {
+    border-bottom: 2px green solid;
+}
+
+.intro>h2 {
+    color: rgb(4, 4, 41);
+}
+
+.intro>ol>li {
+    color: rgb(74, 72, 72);
+    margin-bottom: 10px;
+}
