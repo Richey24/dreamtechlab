@@ -32,6 +32,7 @@ body {
 
 .intro {
     border-bottom: 2px green solid;
+    width: 90%;
 }
 
 .intro>h2 {
