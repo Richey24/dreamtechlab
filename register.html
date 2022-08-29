@@ -383,7 +383,7 @@
 			submitBtn.style.cursor = "not-allowed"
 
 			function myCap() {
-				submitBtn.setAttribute("disabled", false)
+				submitBtn.removeAttribute("disabled")
 				submitBtn.style.cursor = "pointer"
 			}
 			myForm.onsubmit = submitForm
