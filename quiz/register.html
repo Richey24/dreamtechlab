@@ -51,6 +51,19 @@
     </script>
   </head>
 
+  <style>
+    #Course {
+      width: 60vw;
+    }
+
+    @media screen and (max-width: 900px) {
+      #Course {
+        width: 80vw;
+      }
+    }
+
+  </style>
+
   <body>
     <div class="page-wrapper">
       <!-- Register Section -->
@@ -135,7 +148,12 @@
                     <label>Choose Course of Interest:</label>
                     <select name="course"
                       id="course"
-                      style="border-block: medium">
+                      style="border: 3px solid gainsboro;">
+                      <option value="Choose"
+                        selected>Choose a course</option>
+                      <option value="Full-Stack Web Development Bootcamp 0">Full-Stack Web
+                        Development Bootcamp 0
+                        (Fundamentals Of Programming)</option>
                       <option value="Full-Stack Web Development Bootcamp 1">
                         Full-Stack Web Development Bootcamp 1 (Introductory
                         course for novice coders)
@@ -167,7 +185,7 @@
       const allInputs = document.querySelectorAll("input");
       const buttonSave = document.getElementById("btn")
       const message = document.getElementById("message")
-      buttonSave.setAttribute("disabled", true)
+      // buttonSave.setAttribute("disabled", true)
       let cap = false
       function myCap() {
         cap = true
@@ -213,6 +231,7 @@
       myForm.onsubmit = submitForm;
       async function submitForm(event) {
         event.preventDefault();
+        buttonSave.innerHTML = "Loading..."
         const data = {
           firstname: event.target.firstname.value,
           lastname: event.target.lastname.value,
@@ -221,6 +240,11 @@
           course: event.target.course.value,
           mypassword: event.target.password.value,
         };
+        if (data.course === "Choose") {
+          alert("You have not selected a course of interest")
+          buttonSave.innerHTML = "Sign Up"
+          return
+        }
         const res = await fetch("https://dreamtechbackend.herokuapp.com/user/register", {
           method: "POST",
           body: JSON.stringify(data),

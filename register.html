@@ -48,6 +48,54 @@
 
 			gtag('config', 'UA-238497303-1');
 		</script>
+
+		<style>
+			.myMode {
+				position: fixed;
+				width: 50%;
+				height: 100px;
+				top: 50%;
+				left: 25%;
+				background-color: rgb(44, 70, 97);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				border-radius: 8px;
+			}
+
+			.myMode p {
+				font-size: 16px;
+			}
+
+			.myMode button {
+				width: 20%;
+				font-size: 16px;
+				cursor: pointer;
+				border-radius: 8px;
+			}
+
+			#Course {
+				width: 60vw;
+			}
+
+			@media screen and (max-width: 900px) {
+				.myMode {
+					width: 90%;
+					left: 5%;
+					height: 110px;
+				}
+
+				.myMode p {
+					font-size: 14px;
+				}
+
+				#Course {
+					width: 80vw;
+				}
+			}
+
+		</style>
 	</head>
 
 	<body>
@@ -167,16 +215,29 @@
 						<div class="box">
 							<label style="font-size:30px;color:navy;font-weight:400;"><strong>DREAMTECH
 									ACADEMY</strong></label>
+							<div class="mainMode"
+								id="myMode">
+								<div class="myMode">
+									<p style="color: white;">Registration successful, you will recieve a
+										mail from us
+										on the next steps</p>
+									<button id="closeMode">close</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!--End Page Title-->
 
+
+
 			<!-- Register Section -->
 			<section class="register-section">
 				<div class="auto-container">
 					<div class="register-box">
+
+
 
 						<!-- Title Box -->
 						<div class="title-box">
@@ -238,7 +299,12 @@
 										<label>Choose Course of Interest:</label>
 										<select name="course"
 											id="Course"
-											style="border-block:medium;">
+											style="border: 3px solid gainsboro;">
+											<option value="Choose"
+												selected>Choose a course</option>
+											<option value="Full-Stack Web Development Bootcamp 0">Full-Stack Web
+												Development Bootcamp 0
+												(Fundamentals Of Programming)</option>
 											<option value="Full-Stack Web Development Bootcamp 1">Full-Stack Web
 												Development Bootcamp 1
 												(Introductory
@@ -304,12 +370,6 @@
 											Up <i class="fa fa-angle-right"></i></span></button>
 									<br>
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
-										<p class="text-center text-success"
-											style="visibility: hidden; font-size: 16px;"
-											id="successMess">Registration successful, you will recieve a
-											mail from us
-											on the next step
-										</p>
 										<p class="text-center">Have a question about Dreamtech Academy training?
 										</p>
 										<div class="users"><a target="_blank"
@@ -328,6 +388,8 @@
 				</div>
 			</section>
 			<!-- End Login Section -->
+
+
 
 			<!-- Call To Action Section Two -->
 			<section class="call-to-action-section-two"
@@ -378,9 +440,15 @@
 		<script type="text/javascript">
 			const submitBtn = document.getElementById("submitBtn")
 			const myForm = document.getElementById("myForm")
-			const successMessage = document.getElementById("successMess")
+			const mainMode = document.getElementById("myMode")
+			const closeMode = document.getElementById("closeMode")
 			submitBtn.setAttribute("disabled", true)
 			submitBtn.style.cursor = "not-allowed"
+			mainMode.style.display = "none"
+
+			closeMode.addEventListener("click", () => {
+				mainMode.style.display = "none"
+			})
 
 			function myCap() {
 				submitBtn.removeAttribute("disabled")
@@ -389,6 +457,7 @@
 			myForm.onsubmit = submitForm
 			async function submitForm(event) {
 				event.preventDefault();
+				submitBtn.innerHTML = "Loading..."
 				const message = {
 					firstName: event.target.firstname.value,
 					lastName: event.target.lastname.value,
@@ -396,6 +465,11 @@
 					phoneNumber: event.target.phone.value,
 					gender: event.target.sex.value,
 					course: event.target.course.value
+				}
+				if (message.course === "Choose") {
+					alert("You have not selected a course of interest")
+					submitBtn.innerHTML = "Sign Up"
+					return
 				}
 				const res = await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
 					method: "POST",
@@ -405,18 +479,9 @@
 					},
 				});
 				if (res.status === 200) {
-					successMessage.style.visibility = "visible";
-					setTimeout(() => {
-						successMessage.style.visibility = "hidden";
-					}, 8000);
-				} else {
-					successMessage.innerHTML = "Something went wrong, Try again"
-					successMessage.style.visibility = "visible";
-					setTimeout(() => {
-						successMessage.innerHTML = "Registration successful, you will recieve mail from us on the next step"
-						successMessage.style.visibility = "hidden";
-					}, 8000);
+					mainMode.style.display = "block";
 				}
+				submitBtn.innerHTML = "Sign Up"
 			}
 		</script>
 		<script src="js/jquery.js"></script>
