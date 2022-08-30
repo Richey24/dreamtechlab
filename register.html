@@ -305,7 +305,7 @@
 									<br>
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
 										<p class="text-center text-success"
-											style="visibility: hidden;"
+											style="visibility: hidden; font-size: 16px;"
 											id="successMess">Registration successful, you will recieve a
 											mail from us
 											on the next step
@@ -397,17 +397,26 @@
 					gender: event.target.sex.value,
 					course: event.target.course.value
 				}
-				successMessage.style.visibility = "visible"
-				setTimeout(() => {
-					successMessage.style.visibility = "hidden"
-				}, 8000)
-				await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
+				const res = await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
 					method: "POST",
 					body: JSON.stringify(message),
 					headers: {
 						"Content-type": "application/json; charset=UTF-8",
 					},
 				});
+				if (res.status === 200) {
+					successMessage.style.visibility = "visible";
+					setTimeout(() => {
+						successMessage.style.visibility = "hidden";
+					}, 8000);
+				} else {
+					successMessage.innerHTML = "Something went wrong, Try again"
+					successMessage.style.visibility = "visible";
+					setTimeout(() => {
+						successMessage.innerHTML = "Registration successful, you will recieve mail from us on the next step"
+						successMessage.style.visibility = "hidden";
+					}, 8000);
+				}
 			}
 		</script>
 		<script src="js/jquery.js"></script>

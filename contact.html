@@ -246,7 +246,7 @@
                     <br />
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                       <p class="text-center text-success"
-                        style="visibility: hidden"
+                        style="visibility: hidden; font-size: 16px;"
                         id="successMess">
                         Message sent successfullly
                       </p>
@@ -398,17 +398,26 @@
           phoneNumber: event.target.phone.value,
           message: event.target.message.value,
         };
-        await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
+        const res = await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
           method: "POST",
           body: JSON.stringify(message),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
         });
-        successMessage.style.visibility = "visible";
-        setTimeout(() => {
-          successMessage.style.visibility = "hidden";
-        }, 8000);
+        if (res.status === 200) {
+          successMessage.style.visibility = "visible";
+          setTimeout(() => {
+            successMessage.style.visibility = "hidden";
+          }, 8000);
+        } else {
+          successMessage.innerHTML = "Something went wrong, Try again"
+          successMessage.style.visibility = "visible";
+          setTimeout(() => {
+            successMessage.innerHTML = "Message sent successfully"
+            successMessage.style.visibility = "hidden";
+          }, 8000);
+        }
       }
     </script>
     <script src="js/jquery.js"></script>
