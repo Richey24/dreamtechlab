@@ -370,9 +370,9 @@ function getSelected() {
 
 async function sendEmail() {
   const message = {
-    name: "Rejoice",
-    email: "uahomorejoice@gmail.com",
-    phoneNumber: "0904758859",
+    name: sessionStorage.getItem("name"),
+    email: sessionStorage.getItem("email"),
+    phoneNumber: sessionStorage.getItem("phone"),
     quizCourse: sessionStorage.getItem("course"),
     score: score,
     total: quizData.length,
