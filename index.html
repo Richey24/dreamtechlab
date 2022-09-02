@@ -36,16 +36,23 @@
 			content="IE=edge">
 		<meta name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<!-- Global site tag (gtag.js) - Google Ads: 10974464698 -->
 		<script async
-			src="https://www.googletagmanager.com/gtag/js?id=UA-238497303-1"></script>
+			src="https://www.googletagmanager.com/gtag/js?id=AW-10974464698"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() { dataLayer.push(arguments); }
 			gtag('js', new Date());
 
-			gtag('config', 'UA-238497303-1');
+			gtag('config', 'AW-10974464698');
 		</script>
+
+		<script>
+			gtag('config', 'AW-10974464698/0PzSCODTmtsDELqVhPEo', {
+				'phone_conversion_number': '(858) 208-0866'
+			});
+		</script>
+
 	</head>
 
 	<body>
@@ -785,7 +792,7 @@
 					<li><a href="course.html">Course</a></li>
 					<li><a href="contact.html">Contact</a></li>
 					<li><a href="privacy.html">Privacy</a></li>
-<li><a href="terms.html">Terms</a></li>
+					<li><a href="terms.html">Terms</a></li>
 				</ul>
 			</div>
 
@@ -817,6 +824,55 @@
 		<script src="js/wow.js"></script>
 		<script src="js/jquery-ui.js"></script>
 		<script src="js/script.js"></script>
+
+		<script>
+			window.addEventListener('load', function () {
+				if (document.location.pathname.includes('/register.html')) {
+					var timer = setInterval(function () {
+						if (document.querySelector('.mainMode').style.display == 'block') {
+							gtag('event', 'conversion', {
+								'send_to': 'AW-10974464698/NMo3COCVytsDELqVhPEo'
+							});
+							clearInterval(timer)
+						}
+					}, 1000)
+				}
+				if (document.location.pathname.includes('/contact.html')) {
+					var timer = setInterval(function () {
+						if (document.querySelector('.mainMode').style.display == 'block') {
+							gtag('event', 'conversion', {
+								'send_to': 'AW-10974464698/G5pcCN2VytsDELqVhPEo'
+							});
+							clearInterval(timer)
+						}
+					}, 1000)
+				}
+			});
+			document.addEventListener('click', function (e) {
+				if (e.target.closest('button').innerText.includes('Sign Up')) {
+					gtag('event', 'conversion', {
+						'send_to': 'AW-10974464698/chUzCOOVytsDELqVhPEo'
+					});
+				}
+				if (e.target.closest('a').innerText.includes('scholarships')) {
+					gtag('event', 'conversion', {
+						'send_to': 'AW-10974464698/4NFkCOyVytsDELqVhPEo'
+					});
+				}
+				if (e.target.closest('a').innerText.includes('Schedule a Meeting')) {
+					gtag('event', 'conversion', {
+						'send_to': 'AW-10974464698/vSyvCOmVytsDELqVhPEo'
+					});
+				}
+				if (e.target.closest('a[href*="mailto:"]')) {
+					gtag('event', 'conversion', {
+						'send_to': 'AW-10974464698/8HzxCOaVytsDELqVhPEo'
+					});
+				}
+			})
+
+		</script>
+
 
 	</body>
 
