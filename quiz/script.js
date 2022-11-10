@@ -380,14 +380,14 @@ async function sendEmail() {
     cssScore: cssScore,
     jsScore: jsScore,
   };
-  await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
+  await fetch("https://dreamtechbackend.azurewebsites.net/send/mail", {
     method: "POST",
     body: JSON.stringify(message),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
   });
-  await fetch("https://dreamtechbackend.herokuapp.com/user/date", {
+  await fetch("https://dreamtechbackend.azurewebsites.net/user/date", {
     method: "POST",
     body: JSON.stringify({ email: message.email }),
     headers: {

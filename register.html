@@ -426,14 +426,14 @@
 				submitBtn.innerHTML = "Sign Up"
 				return
 			}
-			const res = await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
+			const res = await fetch("https://dreamtechbackend.azurewebsites.net/send/mail", {
 				method: "POST",
 				body: JSON.stringify(message),
 				headers: {
 					"Content-type": "application/json; charset=UTF-8",
 				},
 			});
-			await fetch("https://dreamtechbackend.herokuapp.com/user/register", {
+			await fetch("https://dreamtechbackend.azurewebsites.net/user/register", {
 				method: "POST",
 				body: JSON.stringify(message),
 				headers: {

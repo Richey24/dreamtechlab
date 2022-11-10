@@ -405,7 +405,7 @@
         phoneNumber: event.target.phone.value,
         message: event.target.message.value,
       };
-      const res = await fetch("https://dreamtechbackend.herokuapp.com/send/mail", {
+      const res = await fetch("https://dreamtechbackend.azurewebsites.net/send/mail", {
         method: "POST",
         body: JSON.stringify(message),
         headers: {
